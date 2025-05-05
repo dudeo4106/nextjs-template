@@ -18,9 +18,13 @@
     "plugins": [{ "name": "next" }],
 
     /* target */
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["packages/app/src/*"]
-    }
+      "@/*": ["packages/product/src/*"]
+    },
   },
-  "include": ["packages/app/src/**/*.ts", "packages/app/src/**/*.tsx"]
+  "include": [
+    "packages/product/src/**/*.ts",
+    "packages/product/src/**/*.tsx"
+  ]
 }

@@ -11,12 +11,12 @@ const eslintConfig = [
     extends: ['next', 'next/typescript', 'prettier'],
     settings: {
       next: {
-        rootDir: 'packages/app/',
+        rootDir: './',
       },
     },
     parser: '@typescript-eslint/parser',
     parserOptions: {
-      project: '../../tsconfig.json',
+      project: '../../../tsconfig.json',
     },
   }),
 ];
