@@ -7,20 +7,21 @@
 
     /* bundler mode */
     "moduleResolution": "bundler",
-    "skipLibCheck": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
 
     /* next.js */
     "jsx": "preserve",
     "plugins": [{ "name": "next" }],
 
     /* target */
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["packages/app/src/*"]
+      "@/*": ["packages/product/src/*"]
     }
   },
-  "include": ["packages/app/src/**/*.ts", "packages/app/src/**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

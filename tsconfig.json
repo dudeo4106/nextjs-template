@@ -1,7 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" }
-    /** `tsconfig.node.json` can be added later if SSR (Server-Side Rendering) or additional packages are required. */
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }
