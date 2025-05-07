@@ -7,11 +7,11 @@
 
     /* bundler mode */
     "moduleResolution": "bundler",
-    "skipLibCheck": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
 
     /* next.js */
     "jsx": "preserve",
@@ -21,10 +21,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["packages/product/src/*"]
-    },
+    }
   },
-  "include": [
-    "packages/product/src/**/*.ts",
-    "packages/product/src/**/*.tsx"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

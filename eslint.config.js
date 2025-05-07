@@ -1,22 +1,23 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import prettier from 'eslint-config-prettier';
+import parser from '@typescript-eslint/parser';
 
-export default tseslint.config(
-  eslint.configs.recommended,
-  tseslint.configs.strict,
-  tseslint.configs.stylistic,
+export default [
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    ignores: ['**/node_modules', '**/.next'],
+  },
+  eslint.configs.recommended,
+  ...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
+  {
     languageOptions: {
-      parser: '@typescript-eslint/parser',
+      parser,
       parserOptions: {
         project: ['./tsconfig.json'],
-        projectService: {
-          allowDefaultProject: ['*.js', '*.mjs'],
-        },
+        projectService: true,
       },
     },
   },
   prettier,
-);
+];
