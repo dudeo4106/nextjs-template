@@ -21,11 +21,12 @@
     "fix:prettier": "prettier --write ."
   },
   "devDependencies": {
+    "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.26.0",
     "@tsconfig/strictest": "2.0.5",
     "@typescript-eslint/parser": "8.32.0",
     "eslint": "9.26.0",
-    "eslint-config-next": "15.3.1",
+    "eslint-config-next": "15.3.2",
     "eslint-config-prettier": "10.1.2",
     "lint-staged": "15.5.1",
     "prettier": "3.5.3",
