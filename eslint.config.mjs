@@ -5,7 +5,11 @@ import parser from '@typescript-eslint/parser';
 
 export default [
   {
-    ignores: ['**/node_modules', '**/.next'],
+    ignores: [
+      '**/node_modules',
+      '**/.next',
+      './packages/product/tsconfig.json',
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.strict,
@@ -14,8 +18,7 @@ export default [
     languageOptions: {
       parser,
       parserOptions: {
-        project: ['./tsconfig.json'],
-        projectService: true,
+        projectService: ['*.js'],
       },
     },
   },
