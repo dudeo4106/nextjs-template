@@ -12,6 +12,11 @@
     /* js */
     "allowJs": true,
     /* ignore libs */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    /* path */
+    "baseUrl": ".",
+    "paths": {
+      "mock/*": ["packages/mock/*"]
+    }
   }
 }
