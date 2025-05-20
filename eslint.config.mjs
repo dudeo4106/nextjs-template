@@ -9,6 +9,7 @@ export default [
       '**/node_modules',
       '**/.next',
       './packages/product/tsconfig.json',
+      './packages/product/public/mockServiceWorker.js',
     ],
   },
   eslint.configs.recommended,

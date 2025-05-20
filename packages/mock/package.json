@@ -1,0 +1,16 @@
+{
+  "name": "mock",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/browser.ts"
+  },
+  "devDependencies": {
+    "msw": "2.8.3"
+  },
+  "msw": {
+    "workerDirectory": [
+      "packages/product/public"
+    ]
+  }
+}

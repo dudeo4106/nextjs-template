@@ -1,5 +1,5 @@
 {
-  "name": "next-playground",
+  "name": "next-template",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,6 +8,9 @@
     "node": "22.11.0",
     "npm": "use corepack and pnpm!"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": "eslint --cache --fix",
     "*": "prettier --write --ignore-unknown"
