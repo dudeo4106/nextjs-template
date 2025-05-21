@@ -21,7 +21,8 @@
     "lint:prettier": "prettier --check .",
     "fix": "pnpm '/^fix:/'",
     "fix:eslint": "eslint --fix .",
-    "fix:prettier": "prettier --write ."
+    "fix:prettier": "prettier --write .",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
@@ -31,6 +32,7 @@
     "eslint": "9.26.0",
     "eslint-config-next": "15.3.2",
     "eslint-config-prettier": "10.1.2",
+    "husky": "9.1.7",
     "lint-staged": "15.5.1",
     "prettier": "3.5.3",
     "typescript": "5.8.3",
