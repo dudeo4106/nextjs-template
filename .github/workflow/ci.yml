@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - '**'
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancle-in-progress: true
+
+jobs:
+  install-depencencies:
+    uses: ./.github/workflow/__install-dependencies.yml
+
+  lint:
+    needs: install-depencencies
+    runs-on: ubuntu-latest
+    run: pnpm lint
+
+  builds:
+    needs: install-depencencies
+    runs-on: ubuntu-latest
+    run: pnpm -F client build

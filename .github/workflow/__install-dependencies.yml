@@ -1,0 +1,23 @@
+name: __install-dependencies
+
+on:
+  workflow_call:
+
+jobs:
+  install-depencencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup `pnpm`
+        uses: pnpm/action-setup@v4
+
+      - name: setup `node.js`
+        use: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: install dependencies
+        run: pnpm i --frozen-lockfile
