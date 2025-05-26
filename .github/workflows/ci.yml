@@ -11,14 +11,12 @@ concurrency:
 
 jobs:
   install-depencencies:
-    uses: ./.github/workflow/__install-dependencies.yml
+    uses: ./.github/workflow/__install-dependencies.yml@main
 
   lint:
     needs: install-depencencies
-    runs-on: ubuntu-latest
-    run: pnpm lint
+    uses: ./.github/workflow/__lint.yml@main
 
   builds:
     needs: install-depencencies
-    runs-on: ubuntu-latest
-    run: pnpm -F client build
+    uses: ./.github/workflow/__build.yml@main
