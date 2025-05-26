@@ -11,12 +11,7 @@
     "noEmit": true,
     /* js */
     "allowJs": true,
-    /* ignore libs */
-    "skipLibCheck": true,
     /* path */
-    "baseUrl": ".",
-    "paths": {
-      "mock/*": ["packages/mock/*"]
-    }
+    "baseUrl": "."
   }
 }
