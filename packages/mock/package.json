@@ -1,5 +1,5 @@
 {
-  "name": "mock",
+  "name": "@packages/mock",
   "version": "0.0.0",
   "type": "module",
   "exports": {
@@ -10,7 +10,7 @@
   },
   "msw": {
     "workerDirectory": [
-      "packages/product/public"
+      "apps/client/public"
     ]
   }
 }
