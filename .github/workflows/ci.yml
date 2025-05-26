@@ -11,12 +11,12 @@ concurrency:
 
 jobs:
   install-depencencies:
-    uses: ./.github/workflow/__install-dependencies.yml
+    uses: ./.github/workflow/__install-dependencies.yml@main
 
   lint:
     needs: install-depencencies
-    uses: ./.github/workflow/__lint.yml
+    uses: ./.github/workflow/__lint.yml@main
 
   builds:
     needs: install-depencencies
-    uses: ./.github/workflow/__build.yml
+    uses: ./.github/workflow/__build.yml@main
