@@ -13,5 +13,6 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
+      # tsc 빌드 체크
       - name: Build `Next.js`
         run: pnpm -F client build

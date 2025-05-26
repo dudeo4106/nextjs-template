@@ -14,5 +14,6 @@ runs:
         cache: 'pnpm'
 
     - name: Install dependencies
+      # Linux & Mac 기본 shell
       shell: bash
       run: pnpm install --frozen-lockfile
