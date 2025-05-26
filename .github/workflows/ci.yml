@@ -15,10 +15,8 @@ jobs:
 
   lint:
     needs: install-depencencies
-    runs-on: ubuntu-latest
-    run: pnpm lint
+    uses: ./.github/workflow/__lint.yml
 
   builds:
     needs: install-depencencies
-    runs-on: ubuntu-latest
-    run: pnpm -F client build
+    uses: ./.github/workflow/__build.yml
