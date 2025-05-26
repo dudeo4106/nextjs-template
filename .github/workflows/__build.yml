@@ -1,0 +1,18 @@
+name: __install-dependencies
+
+on:
+  workflow_call:
+
+jobs:
+  install-depencencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      # tsc 빌드 체크
+      - name: Build `Next.js`
+        run: pnpm -F client build

@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - '**'
+
+concurrency:
+  group: ci-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  # 먼저 의존성을 설치한 후 lint와 build를 실행
+  install-depencencies:
+    uses: ./.github/workflows/__install-dependencies.yml
+
+  lint:
+    needs: install-depencencies
+    uses: ./.github/workflows/__lint.yml
+
+  builds:
+    needs: install-depencencies
+    uses: ./.github/workflows/__build.yml
