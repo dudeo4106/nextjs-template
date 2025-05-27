@@ -1,4 +1,4 @@
 import type { HttpHandler } from 'msw';
-import { userHandlers } from './user.controller';
+import { itemController } from './item.controller';
 
-export const handlers: HttpHandler[] = [...userHandlers];
+export const handlers: HttpHandler[] = [...itemController];

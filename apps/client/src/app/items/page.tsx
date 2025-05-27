@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-const Home = () => {
+const Items = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch('/api/users/1')
+    fetch('/api/items')
       .then((data) => {
         console.log('success: ', data);
       })
@@ -17,11 +17,11 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Hello world</h1>
+      <h1>Items Page</h1>
       <h2>count: {count}</h2>
       <button onClick={() => setCount(count + 1)}>button</button>
     </div>
   );
 };
 
-export default Home;
+export default Items;
