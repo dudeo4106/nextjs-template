@@ -5,12 +5,7 @@ import parser from '@typescript-eslint/parser';
 
 export default [
   {
-    ignores: [
-      '**/node_modules',
-      '**/.next',
-      './packages/product/tsconfig.json',
-      './packages/product/public/mockServiceWorker.js',
-    ],
+    ignores: ['**/node_modules', '**/.next'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.strict,
