@@ -5,7 +5,7 @@ import parser from '@typescript-eslint/parser';
 
 export default [
   {
-    ignores: ['**/node_modules', '**/.next'],
+    ignores: ['**/node_modules', '**/.next', '**/dist'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.strict,
