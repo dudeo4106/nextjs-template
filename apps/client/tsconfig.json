@@ -19,10 +19,5 @@
     "incremental": false
   },
   "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": [
-    "node_modules",
-    "public/mockServiceWorker.js",
-    "**/*.stories.ts",
-    "**/*.stories.tsx"
-  ]
+  "exclude": ["node_modules", "public/mockServiceWorker.js"]
 }
