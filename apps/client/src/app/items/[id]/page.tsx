@@ -2,24 +2,28 @@
 
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import { getItem } from '@/libs/apis/items';
 
 const ItemDetail = () => {
   const params = useParams();
   const itemId = params['id'];
 
   useEffect(() => {
-    fetch(`/api/item/${itemId}`)
-      .then((data) => {
-        if (!data.ok) {
-          console.error('not fount items');
-          return;
-        }
-        console.log('success: ', data);
-      })
-      .catch((error) => {
+    if (!itemId || typeof itemId !== 'string') {
+      return;
+    }
+
+    const fetchItem = async () => {
+      try {
+        const item = await getItem(itemId);
+        console.log('success:', item);
+      } catch (error) {
         console.error('fail: ', error);
-      });
-  }, []);
+      }
+    };
+
+    fetchItem();
+  }, [itemId]);
 
   return (
     <div>
