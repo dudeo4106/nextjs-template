@@ -49,7 +49,6 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
     method,
     headers: headers,
     // see: https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
-    // TODO: check if JSON.stringify is needed
     body: JSON.stringify(data) ?? null,
     signal,
   } as const satisfies RequestInit;
