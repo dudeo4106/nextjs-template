@@ -1,0 +1,15 @@
+{
+  "name": "storybook",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev-client": "storybook dev --config-dir .storybook/client -p 6006",
+    "build": "pnpm /^build-/",
+    "build-client": "storybook build --config-dir .storybook/client --output-dir dist/client"
+  },
+  "devDependencies": {
+    "storybook": "catalog:",
+    "@storybook/nextjs": "catalog:"
+  }
+}

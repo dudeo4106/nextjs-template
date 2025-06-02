@@ -1,0 +1,37 @@
+.primary-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #002d72;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
+
+  padding-top: 44px;
+  padding-bottom: 44px;
+
+  &.size-s {
+    padding-left: 4%;
+    padding-right: 4%;
+    font-size: 0.875rem;
+  }
+
+  &.size-m {
+    /* 좌·우: 8 % */
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: 1rem;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #00428f;
+  }
+
+  &:disabled {
+    background-color: #b0b9c3;
+    cursor: not-allowed;
+  }
+}

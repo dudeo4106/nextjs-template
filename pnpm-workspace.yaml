@@ -1,3 +1,6 @@
 packages:
   - 'packages/*'
   - 'apps/*'
+catalog:
+  '@storybook/nextjs': '9.0.3'
+  'storybook': '9.0.3'

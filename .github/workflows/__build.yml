@@ -16,3 +16,6 @@ jobs:
       # tsc 빌드 체크
       - name: Build `Next.js`
         run: pnpm -F client build
+
+      - name: Build `Storybook`
+        run: pnpm -F storybook build
