@@ -1,9 +1,9 @@
 /**
- * fetcher.ts
+ * fetchWrapper.ts
  *
  * Common data fetching utility function.
  *
- * - Named "fetcher" based on its role: handles HTTP requests and responses.
+ * - Named "fetchWrapper" based on its role: handles HTTP requests and responses.
  * - Even without SWR, the term clearly conveys its purpose and matches common conventions.
  * - Abstract enough to allow internal implementation changes (e.g., fetch, axios).
  * - Keeps the codebase clean and semantically meaningful.
@@ -23,22 +23,22 @@ interface Params<RequestDataType> {
   responseType?: ResponseType;
 }
 
-interface ApiResponse<ResponseDataType> {
+interface Response<ResponseDataType> {
   headers: HeadersInit;
-  statusCode: number;
+  status: number;
   data: ResponseDataType | null;
 }
 
 export const fetchWrapper = async <RequestDataType, ResponseDataType>(
-  requestParams: Params<RequestDataType>,
-): Promise<ApiResponse<ResponseDataType>> => {
+  params: Params<RequestDataType>,
+): Promise<Response<ResponseDataType>> => {
   const {
     endpoint,
     method,
     headers = {},
     data,
     responseType = 'json',
-  } = requestParams;
+  } = params;
 
   const controller = new AbortController();
   const signal = controller.signal;
@@ -54,31 +54,32 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
     signal,
   } as const satisfies RequestInit;
 
-  const res = await fetch(endpoint, { ...config, signal });
+  const response = await fetch(endpoint, { ...config, signal });
   clearTimeout(timeoutId);
 
-  if (!res.ok) {
-    const errorRes = await res.json();
+  if (!response.ok) {
+    const error = await response.json();
     // TODO: define how to define error
-    throw errorRes;
+    throw error;
   }
 
   let responseData;
 
   switch (responseType) {
     case 'json':
-      responseData = await res.json();
+      responseData = await response.json();
       break;
     case 'html':
-      responseData = await res.text();
+      responseData = await response.text();
       break;
     default:
-      responseData = await res.json();
+      // TODO: define how to define error
+      responseData = await response.json();
   }
 
   return {
-    headers: res.headers,
-    statusCode: res.status,
+    headers: response.headers,
+    status: response.status,
     data: responseData,
   };
 };

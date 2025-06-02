@@ -1,5 +1,6 @@
 'use client';
-import { createItem, getItems } from '@/libs/apis';
+
+import { createItem, getItems } from '@/libs/apis/items';
 import { useEffect, useState } from 'react';
 
 const Items = () => {

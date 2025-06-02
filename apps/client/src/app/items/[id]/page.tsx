@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { getItem } from '@/libs/apis';
+import { getItem } from '@/libs/apis/items';
 
 const ItemDetail = () => {
   const params = useParams();
