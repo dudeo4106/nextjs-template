@@ -7,8 +7,7 @@ const config = {
   webpackFinal: async (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '@components': path.resolve(__dirname, '../../../client/src/components'),
+      '@': path.resolve(__dirname, '../../../client/src'),
     };
     return config;
   },
