@@ -1,23 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
-export default function MswProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const MockProvider = ({ children }: { children: ReactNode }) => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('@packages/mock').then(({ worker }) => {
-        worker.start().then(() => setReady(true));
-      });
-    }
+    // TODO: Check if being used only for dev env.
+    (async () => {
+      const { worker } = await import('@packages/mock');
+      await worker.start();
+      setReady(true);
+    })();
   }, []);
 
-  if (!ready) return <div>Loading mocks...</div>;
+  return ready ? <>{children}</> : null;
+};
 
-  return <>{children}</>;
-}
+export default MockProvider;
