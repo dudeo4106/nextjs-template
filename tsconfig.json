@@ -1,17 +1,6 @@
 {
-  "extends": "@tsconfig/strictest/tsconfig.json",
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    /* bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    /* js */
-    "allowJs": true,
-    /* path */
-    "baseUrl": "."
-  }
+  // Extending from a shared base config is a common convention.
+  // It helps maintain consistent TypeScript settings across multiple projects or packages,
+  // and allows each project to override only what it needs.
+  "extends": "./tsconfig.base.json"
 }
