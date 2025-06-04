@@ -1,23 +1,21 @@
-import styles from './layout.module.scss';
-
+import type { ReactNode } from 'react';
 import MockProvider from '@/providers/mockProvider';
-
 import classNames from 'classnames/bind';
+
+import styles from './layout.module.scss';
 
 const cx = classNames.bind(styles);
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html lang="en">
       <body>
-        <div className={cx('container')}>
-          <MockProvider>{children}</MockProvider>
-        </div>
+        <MockProvider>
+          <div className={cx('container')}>{children}</div>
+        </MockProvider>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
