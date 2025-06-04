@@ -13,6 +13,6 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
-      # eslint & prettier 체크
+      # Check eslint & prettier
       - name: Lint
         run: pnpm lint
