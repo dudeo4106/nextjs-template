@@ -10,7 +10,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # 먼저 의존성을 설치한 후 lint와 build를 실행
   install-depencencies:
     uses: ./.github/workflows/__install-dependencies.yml
 

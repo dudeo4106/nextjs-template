@@ -14,6 +14,6 @@ runs:
         cache: 'pnpm'
 
     - name: Install dependencies
-      # Linux & Mac 기본 shell
+      # bash is the basic shell for Linux and Mac
       shell: bash
       run: pnpm install --frozen-lockfile
