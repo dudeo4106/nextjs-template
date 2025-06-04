@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    /* bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    /* js */
+    "allowJs": true,
+    /* path */
+    "baseUrl": "."
+  }
+}
