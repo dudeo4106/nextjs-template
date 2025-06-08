@@ -9,6 +9,8 @@
  * - Keeps the codebase clean and semantically meaningful.
  */
 
+import { CustomApiError } from './CustomApiError';
+
 // Typed HTTP methods for fetch; limits to valid verbs since RequestInit.method is just a string.
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 type RequestInit = NonNullable<Parameters<typeof fetch>[1]>;
@@ -57,9 +59,7 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
   clearTimeout(timeoutId);
 
   if (!response.ok) {
-    const error = await response.json();
-    // TODO: define how to define error
-    throw error;
+    throw await CustomApiError.createdFrom(response);
   }
 
   let responseData;
@@ -72,8 +72,7 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
       responseData = await response.text();
       break;
     default:
-      // TODO: define how to define error
-      responseData = await response.json();
+      throw await CustomApiError.createdFrom(response);
   }
 
   return {
