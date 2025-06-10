@@ -21,14 +21,13 @@ interface Params<RequestDataType> {
   endpoint: string;
   method: HttpMethod;
   headers?: HeadersInit;
-  data?: RequestDataType;
+  body: RequestDataType;
   responseType?: ResponseType;
 }
 
 interface Response<ResponseDataType> {
-  headers: HeadersInit;
   status: number;
-  data: ResponseDataType | null;
+  data: ResponseDataType;
 }
 
 export const fetchWrapper = async <RequestDataType, ResponseDataType>(
@@ -38,7 +37,7 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
     endpoint,
     method,
     headers = {},
-    data,
+    body,
     responseType = 'json',
   } = params;
 
@@ -51,7 +50,7 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
     method,
     headers: headers,
     // see: https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
-    body: JSON.stringify(data) ?? null,
+    body: body && JSON.stringify(body),
     signal,
   } as const satisfies RequestInit;
 
@@ -62,22 +61,21 @@ export const fetchWrapper = async <RequestDataType, ResponseDataType>(
     throw await CustomApiError.createdFrom(response);
   }
 
-  let responseData;
+  let responseBody;
 
   switch (responseType) {
     case 'json':
-      responseData = await response.json();
+      responseBody = await response.json();
       break;
     case 'html':
-      responseData = await response.text();
+      responseBody = await response.text();
       break;
     default:
       throw await CustomApiError.createdFrom(response);
   }
 
   return {
-    headers: response.headers,
     status: response.status,
-    data: responseData,
+    data: responseBody,
   };
 };
