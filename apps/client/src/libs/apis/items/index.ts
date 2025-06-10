@@ -14,6 +14,7 @@ export const getItems = async (): Promise<Item[] | null> => {
     const { data } = await fetchWrapper<null, Item[]>({
       endpoint: `${BASE_URL}`,
       method: 'GET',
+      body: null,
     });
     return data;
   } catch (error) {
@@ -27,6 +28,7 @@ export const getItem = async (id: string): Promise<Item | null> => {
     const { data } = await fetchWrapper<null, Item>({
       endpoint: `${BASE_URL}/${id}`,
       method: 'GET',
+      body: null,
     });
     return data;
   } catch (error) {
@@ -42,7 +44,7 @@ export const createItem = async (item: {
   const { data } = await fetchWrapper<{ name: string; price: number }, null>({
     endpoint: '/api/items',
     method: 'POST',
-    data: item,
+    body: item,
   });
 
   return data;
