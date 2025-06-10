@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
-import MockProvider from '@/providers/mockProvider';
 import classNames from 'classnames/bind';
+import type { ReactNode } from 'react';
+
+import MockProvider from '@/providers/mockProvider';
 
 import styles from './layout.module.scss';
 

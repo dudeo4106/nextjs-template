@@ -1,4 +1,4 @@
-import { HttpResponse, http } from 'msw';
+import { http, HttpResponse } from 'msw';
 
 import { items } from '../data/item.data';
 

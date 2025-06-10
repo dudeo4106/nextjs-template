@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes } from 'react';
 import classNames from 'classnames/bind';
+import { ButtonHTMLAttributes } from 'react';
+
 import styles from './primary-button.module.scss';
 
 const cx = classNames.bind(styles);
