@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+
 import { ButtonGroup } from './ButtonGroup';
 
 const meta: Meta<typeof ButtonGroup> = {

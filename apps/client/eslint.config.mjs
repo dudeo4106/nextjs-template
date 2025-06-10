@@ -1,4 +1,6 @@
 import { FlatCompat } from '@eslint/eslintrc';
+
+// import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import rootEslintConfig from '../../eslint.config.mjs';
 
 const compat = new FlatCompat({

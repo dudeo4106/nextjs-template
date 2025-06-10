@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import { useEffect } from 'react';
+
 import { getItem } from '@/libs/apis/items';
 
 const ItemDetail = () => {

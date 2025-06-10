@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 
 const MockProvider = ({ children }: { children: ReactNode }) => {
   const [ready, setReady] = useState(false);
