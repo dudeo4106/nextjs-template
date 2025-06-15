@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'JapaneseFont';
+  src: url('/fonts/noto-sans-jp-v54-latin-700.woff2') format('woff2');
+  font-style: normal;
+  unicode-range: U+3040-309F, U+30A0-30FF, U+4E00-9FFF; // gana, kanji
+}
+
+@font-face {
+  font-family: 'EnglishFont';
+  src: url('/fonts/lato-v24-latin-700.woff2') format('woff2');
+  font-style: normal;
+  unicode-range: U+0041-005A, U+0061-007A; // english
+}
+
+@font-face {
+  font-family: 'NumberFont';
+  src: url('/fonts/oswald-v56-latin-700.woff2') format('woff2');
+  font-style: normal;
+  unicode-range: U+0030-0039; // 0~9
+}
+
+body {
+  font-family: 'JapaneseFont', 'EnglishFont', 'NumberFont', sans-serif;
+}
