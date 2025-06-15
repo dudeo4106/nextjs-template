@@ -1,3 +1,5 @@
+import '../styles/global.scss';
+
 import classNames from 'classnames/bind';
 import type { ReactNode } from 'react';
 
